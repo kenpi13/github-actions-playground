@@ -1,0 +1,16 @@
+name: comment-pull-request
+on:
+ pull_request:
+  types: opened
+
+jobs:
+  comment:
+    name: Comment
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions-ecosystem/action-create-comment@v1
+        name: Comment Pull Request
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          body: ${{ github.actor }}
