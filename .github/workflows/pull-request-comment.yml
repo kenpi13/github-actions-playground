@@ -13,4 +13,4 @@ jobs:
         name: Comment Pull Request
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          body: sample-comment
+          body: ${{ github.actor }}
