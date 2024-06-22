@@ -36,4 +36,4 @@ jobs:
     steps:
       - name: deploy
         run: echo 'start deploy'
-    needs: ci2
+    needs: ci3
