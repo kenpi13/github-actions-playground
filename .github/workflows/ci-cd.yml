@@ -6,7 +6,7 @@ on:
       environment:
         type: environment
         required: true
-        description: prod or dev
+        description: prod or stg or dev
 
 jobs:
   ci:
@@ -16,12 +16,19 @@ jobs:
         run: echo 'start ci-cd'
   ci2:
     runs-on: ubuntu-latest
+    if: ${{inputs.environment}} == ('stg' || 'prod')
     environment:
       name: ${{ inputs.environment }}
     steps:
       - name: ci-cd2
         run: echo 'start ci-cd2'
     needs: ci
+  ci3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ci-cd3
+        run: echo 'start ci-cd3'
+    needs: ci2
   deployment:
     runs-on: ubuntu-latest
     environment:
