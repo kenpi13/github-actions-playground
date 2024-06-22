@@ -9,8 +9,15 @@ on:
         description: prod or dev
 
 jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ci-cd
+        run: echo 'start ci-cd'
   deployment:
     runs-on: ubuntu-latest
+    environment:
+      name: prod
     steps:
       - name: deploy
         run: echo 'start deploy'
