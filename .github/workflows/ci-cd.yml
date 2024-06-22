@@ -21,6 +21,7 @@ jobs:
     steps:
       - name: ci-cd2
         run: echo 'start ci-cd2'
+    needs: ci
   deployment:
     runs-on: ubuntu-latest
     environment:
@@ -28,3 +29,4 @@ jobs:
     steps:
       - name: deploy
         run: echo 'start deploy'
+    needs: ci2
