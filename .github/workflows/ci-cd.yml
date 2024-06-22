@@ -14,6 +14,13 @@ jobs:
     steps:
       - name: ci-cd
         run: echo 'start ci-cd'
+  ci2:
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ inputs.environment }}
+    steps:
+      - name: ci-cd2
+        run: echo 'start ci-cd2'
   deployment:
     runs-on: ubuntu-latest
     environment:
