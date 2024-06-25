@@ -22,9 +22,6 @@ jobs:
     steps:
       - name: ci-cd2
         run: echo 'start ci-cd2'
-      - name: run
-        if: ${{inputs.environment}} == ('stg' || 'prod')
-        run: echo 'dev'
     needs: ci
   ci3:
     runs-on: ubuntu-latest
